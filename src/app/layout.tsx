@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Rede social para cachorros",
 };
 
-export default async function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+export default async function RootLayout({children, modal}: Readonly<{children: React.ReactNode; modal: React.ReactNode}>) {
   const {data} = await userGet();
 
   return (
@@ -23,6 +23,7 @@ export default async function RootLayout({children}: Readonly<{children: React.R
             <main className="AppBody">
               {children}
             </main>
+            <div>{modal}</div>
             <Footer />
           </div>
         </UserContextProvider>
